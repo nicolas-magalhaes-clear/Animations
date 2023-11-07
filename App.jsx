@@ -14,33 +14,42 @@ export default class App extends Component{
     };
 
 
-    Animated.sequence([
-      Animated.parallel([
-        Animated.timing(
-          this.state.LarAnimada,
-          {
-            toValue: 300,
-            duration: 2000
-          }
-        ),
-        Animated.timing(
-          this.state.AltAnimada,
-          {
-            toValue: 200,
-            duration: 2000
-          }
-        ),
-      ]),
-
-      Animated.timing(
-        this.state.OpacidadeAnimada,
-        {
-          toValue: 0,
-          duration: 2000
-        }
-      )
-
-    ]).start()
+    Animated.loop(
+      Animated.sequence([
+        Animated.parallel([
+          Animated.timing(
+            this.state.LarAnimada,
+            {
+              toValue: 300,
+              duration: 700
+            }
+          ),
+          Animated.timing(
+            this.state.AltAnimada,
+            {
+              toValue: 100,
+              duration: 700
+            }
+          )
+        ]),
+        Animated.parallel([
+          Animated.timing(
+            this.state.LarAnimada,
+            {
+              toValue: 150,
+              duration: 700
+            }
+          ),
+          Animated.timing(
+            this.state.AltAnimada,
+            {
+              toValue: 50,
+              duration: 700
+            }
+          )
+        ])
+      ])
+    ).start()
 
     
   }
