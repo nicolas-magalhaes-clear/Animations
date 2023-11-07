@@ -14,7 +14,7 @@ export default class App extends Component{
     };
 
 
-    Animated.sequence([
+    Animated.parallel([
       Animated.timing(
         this.state.LarAnimada,
         {
@@ -29,13 +29,7 @@ export default class App extends Component{
           duration: 2000
         }
       ),
-      Animated.timing(
-        this.state.OpacidadeAnimada,
-        {
-          toValue: 0,
-          duration: 2000
-        }
-      )
+      
 
     ]).start()
 
