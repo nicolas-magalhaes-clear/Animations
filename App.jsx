@@ -14,22 +14,31 @@ export default class App extends Component{
     };
 
 
-    Animated.parallel([
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(
+          this.state.LarAnimada,
+          {
+            toValue: 300,
+            duration: 2000
+          }
+        ),
+        Animated.timing(
+          this.state.AltAnimada,
+          {
+            toValue: 200,
+            duration: 2000
+          }
+        ),
+      ]),
+
       Animated.timing(
-        this.state.LarAnimada,
+        this.state.OpacidadeAnimada,
         {
-          toValue: 300,
+          toValue: 0,
           duration: 2000
         }
-      ),
-      Animated.timing(
-        this.state.AltAnimada,
-        {
-          toValue: 200,
-          duration: 2000
-        }
-      ),
-      
+      )
 
     ]).start()
 
